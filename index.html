@@ -3,15 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gabriel's Not-Totally-Broken Site</title>
+  <title>Gabriel's Loser Cosmic Zone</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f0f0f0; }
-    h1 { color: #ff4444; }
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: 'Arial Black', Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      min-height: 100vh;
+      background-image: url('background.jpg');  /* your uploaded image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;  /* stays put on scroll */
+    }
+    h1 {
+      font-size: 4em;
+      text-shadow: 0 0 20px #ff0000, 0 0 40px #ff4500;
+      margin: 100px 0 20px;
+    }
+    p {
+      font-size: 1.5em;
+      text-shadow: 0 0 10px black;
+    }
   </style>
 </head>
 <body>
-  <h1>Finally, something that isn't "README"</h1>
-  <p>Congrats, Dallas dummy—you have a real website now.</p>
-  <p>Edit this file anytime on GitHub and watch it update for free.</p>
+  <h1>Loser Energy Activated</h1>
+  <p>Dallas dummy finally has a vibe. Click anywhere if the music's being a bitch.</p>
+
+  <!-- Sueco - Loser audio (autoplay + loop attempt) -->
+  <audio id="bgMusic" loop>
+    <source src="https://www.youtube.com/watch?v=X3iWidBdQsU" type="audio/mpeg">  <!-- This WON'T work directly – see below -->
+    Your browser doesn't support audio.
+  </audio>
+
+  <script>
+    const audio = document.getElementById('bgMusic');
+    // Try to play on load (probably blocked)
+    audio.play().catch(() => {
+      console.log("Autoplay blocked - waiting for click");
+      document.body.addEventListener('click', () => {
+        audio.play();
+      }, { once: true });
+    });
+  </script>
 </body>
 </html>
